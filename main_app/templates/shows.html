@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All TV Shows</title>
+</head>
+
+    <style>
+
+        #main{
+            margin-left: 500px;
+        }
+
+        #table{
+            margin-left: 0px;
+            height: 300px;
+            width: 600px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            background-color: aquamarine;
+        }
+
+        #headers{
+            margin: 5px;
+            text-align: left;
+            font-size: larger;
+        }
+
+
+    </style>
+
+<body>
+
+<div id='main'>
+
+    <h1 id='title'>All Shows</h1>
+
+    <table id='table'>
+        <tr id='headers'> 
+            <th>ID</th>
+            <th>Title</th>
+            <th>Network</th>
+            <th>Release Date</th>
+            <th>Actions</th>
+        </tr>
+            {% for show in show %}
+        <tr>
+            <td class='data'>{{show.id}}</td>
+            <td class='data'>{{show.title}}</td>
+            <td class='data'>{{show.network}}</td>
+            <td class='data'>{{show.release_date}}</td>
+            <td class='data'><a href="/show_info/{{ show.id }}">Show</a> | <a href="/edit_show/{{show.id}}">Edit</a> | <a href="/delete/{{show.id}}">Delete</a></td>
+        </tr>
+            {% endfor %}
+    </table>
+
+    <a href="/add_show" id='add_show'>Add a New Show</a>
+
+</div>
+
+</body>
+
+</html>
